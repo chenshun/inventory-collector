@@ -1,0 +1,22 @@
+{
+    "name": "inventory-collector"
+  , "description": "Extensivepro inventory collector service"
+  , "version": "0.0.1"
+  , "private": true
+  , "dependencies": {
+			"log4js": ">= 0.5.5"
+		, "redis": ">=0.8.2"
+  }
+  , "devDependencies": {
+	  	"mocha": "*"
+    , "should": "*"
+  }
+  , "scripts": {
+			"test": "make test"
+		, "postinstall": "cp config.default.js node_modules/config.js"
+		, "start": "node server.js"
+  }
+  , "main": "./server.js"
+  , "engines": { "node": ">= 0.8.12" }
+}
+
