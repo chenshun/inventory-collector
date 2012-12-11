@@ -13,9 +13,9 @@ var config = {
 };
 
 var json = {
-    "cmd": 10,
-    "IMSI": "404685505601234",
-    "data": "会员：张三 电话：13912345678 消费金额：100元"
+  "cmd": 10,
+  "IMSI": "404685505601234",
+  "data": "会员：张三 电话：13912345678 消费金额：100元"
 };
 
 describe('#Upload acceptance', function(){
@@ -24,11 +24,11 @@ describe('#Upload acceptance', function(){
 			function() { //'connect' listener
 			  logger.info('client connected');
 				client.write(JSON.stringify(json));
+				client.end();
 		});
 
 		client.on('data', function(data) {
 		  logger.info(data.toString());
-		  client.end();
 		});
 
 		client.on('end', function() {

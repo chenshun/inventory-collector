@@ -4,7 +4,11 @@ var config = require('config.js').config;
 var commands = require('./lib/commands.js');
 var logger = require('log4js').getLogger('Server');
 
-var server = net.createServer(function(c) { //'connection' listener
+var options = {
+	allowHalfOpen: (process.env.NODE_ENV!='production')
+};
+
+var server = net.createServer(options,function(c) { //'connection' listener
   logger.debug('server connected from:%s:%d', c.remoteAddress, c.remotePort);
 	var buffer ='';
 	c.setEncoding('utf8');
@@ -14,13 +18,11 @@ var server = net.createServer(function(c) { //'connection' listener
 	});
 
   c.on('end', function() {
-		var cmd = JSON.parse(buffer);
-
-    logger.debug('server disconnected:\n', cmd);
-		commands(cmd);
+		c.packet = JSON.parse(buffer);
+		commands(c);
   });
 	
-  c.write('200\r\n');
+  // c.write('200\r\n');
   // c.pipe(c);
 });
 
