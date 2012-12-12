@@ -13,6 +13,9 @@ var server = net.createServer(options,function(c) { //'connection' listener
   logger.debug('server connected from:%s:%d', c.remoteAddress, c.remotePort);
 	var buffer ='';
 	c.setEncoding('utf8');
+	c.setTimeout(config.timeout, function() {
+		c.end();
+	});
 
 	c.on('data', function(data) {
 		buffer += data;

@@ -9,6 +9,7 @@ exports.config = {
 	evn:'development',
 	host: process.env.SERVER_HOST||'127.0.0.1', 
 	port: parseInt(process.env.INVENTORY_COLLECTOR_PORT)||9000,
+	timeout: 30000,//milliseconds
 
   redis: {
 		port: process.env.REDIS_PORT||6379,
