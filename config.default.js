@@ -13,5 +13,12 @@ exports.config = {
   redis: {
 		port: process.env.REDIS_PORT||6379,
 		host: process.env.REDIS_HOST||"127.0.0.1"
-  }
+  },
+	log:{
+		level:{
+			development:'TRACE',
+			test:'INFO',
+			production:'ERROR',
+		}
+	}
 };
