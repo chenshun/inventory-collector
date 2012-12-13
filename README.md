@@ -1,4 +1,5 @@
 #inventory-collector
+[![Build Status](https://secure.travis-ci.org/guanbo/inventory-collector.png?branch=master)](http://travis-ci.org/guanbo/inventory-collector)
 ===================
 
 ## 介绍

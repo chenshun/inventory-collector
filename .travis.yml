@@ -1,0 +1,8 @@
+# .travis.yml
+language: node_js
+node_js:
+  - 0.8
+services:
+  - redis-server
+env:
+  - SERVER_HOST='127.0.0.1'

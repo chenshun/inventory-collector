@@ -6,7 +6,6 @@ exports.config = {
 	name: 'inventory-collector',
 	description: 'Extensivepro inventory collector service',
 
-	evn:'development',
 	host: process.env.SERVER_HOST||'127.0.0.1', 
 	port: parseInt(process.env.INVENTORY_COLLECTOR_PORT)||9000,
 	timeout: 30000,//milliseconds
