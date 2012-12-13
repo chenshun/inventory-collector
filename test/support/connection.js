@@ -34,6 +34,5 @@ Connection.prototype.json = function(json, done) {
 };
 
 if (typeof module !== "undefined" && module.exports) {
-	logger.debug('exports');
 	module.exports = connection;
 }

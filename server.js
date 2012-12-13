@@ -22,8 +22,10 @@ var server = net.createServer(options,function(c) { //'connection' listener
 	});
 
   c.on('end', function() {
-		c.packet = JSON.parse(buffer);
-		commands(c);
+		var packet = JSON.parse(buffer);
+		commands(packet, function() {
+			c.end();
+		});
   });
 	
   // c.write('200\r\n');
