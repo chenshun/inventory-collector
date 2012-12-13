@@ -5,6 +5,16 @@
 ## 介绍
 打印小票收集服务
 
+## 安装部署
+
+```bash
+//clone project
+git clone git://github.com/guanbo/inventory-collector.git  
+cd inventory-collector
+npm install ./
+npm start
+```
+
 ##ToDo
 	* `保存数据到MongoDB` - 初步分拣后将流数据切成独立的清单作为原始凭证归档
 	* `对MongoDB中的小票ETL` - 将萃取出来的数据加入到我们的消费记录数据库中

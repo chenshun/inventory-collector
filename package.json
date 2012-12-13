@@ -14,7 +14,7 @@
   , "scripts": {
 			"test": "make test"
 		, "postinstall": "cp config.default.js node_modules/config.js"
-		, "start": "node server.js"
+		, "start": "sh startup.sh inventory-collector server.js"
   }
   , "main": "./server.js"
   , "engines": { "node": ">= 0.8.12" }
