@@ -1,7 +1,7 @@
 var net = require('net');
 var config = require('config.js').config;
 
-var commands = require('./lib/commands.js');
+var command = require('./lib/command');
 var logger = require('log4js').getLogger('Server');
 logger.setLevel(config.log.level[process.env.NODE_ENV]);
 
@@ -23,7 +23,8 @@ var server = net.createServer(options,function(c) { //'connection' listener
 
   c.on('end', function() {
 		var packet = JSON.parse(buffer);
-		commands(packet, function() {
+		command.handle(packet, function(err) {
+			if(err) logger.error(err);
 			c.end();
 		});
   });

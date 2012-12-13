@@ -22,13 +22,13 @@ function Connection() {
 Connection.prototype.json = function(json, done) {
 	var client = net.connect(this.options,
 		function() { //'connect' listener
-		  logger.info('client connected');
+		  logger.debug('client connected');
 			client.write(JSON.stringify(json));
 			client.end();
 	});
 
 	client.on('end', function() {
-	  logger.info('client disconnected');
+	  logger.debug('client disconnected');
 		if(done) done();
 	});
 };

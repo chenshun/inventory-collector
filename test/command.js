@@ -1,11 +1,11 @@
 var should = require('should');
-var commands = require('../lib/commands');
-var json = require('./json/commands');
+var command = require('../lib/command');
+var json = require('./json/command');
 
 describe('#Commands Unit Test', function(){
 	describe('##Upload', function(){
 		it('Should success upload data', function(done) {
-			commands(json.upload, function(err) {
+			command.handle(json.upload, function(err) {
 				should.not.exist(err)
 				done()
 			})
@@ -13,7 +13,7 @@ describe('#Commands Unit Test', function(){
 	})
 	describe('##Register', function(){
 		it('Should success register IMSI & IMEI', function(done) {
-			commands(json.register, function(err) {
+			command.handle(json.register, function(err) {
 				should.not.exist(err)
 				done()
 			})
@@ -21,7 +21,7 @@ describe('#Commands Unit Test', function(){
 	})
 	describe('##Heart beat', function(){
 		it('Should success beart beat as IMSI', function(done) {
-			commands(json.heartbeat, function(err) {
+			command.handle(json.heartbeat, function(err) {
 				should.not.exist(err)
 				done()
 			})
